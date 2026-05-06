@@ -1,4 +1,10 @@
+# Sphinx + unified docs build (Read the Docs and local ``python -m sphinx``)
 sphinx>=7.0,<9
 sphinx-rtd-theme>=2.0
-# Pure-Python interface enumeration (avoids netifaces C build where wheels are unavailable)
+
+# Released packages (PyPI): autodoc imports these modules — no vendor tree required.
+django-udp-discovery
+django-udp-discovery-client[django]
+
+# Pure-Python interfaces so ``discovery_client.network`` imports without building netifaces.
 ifaddr>=0.2.0

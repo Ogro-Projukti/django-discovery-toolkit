@@ -1,2 +1,33 @@
-/packages
+# Sphinx
 /docs/_build/
+
+# Optional local clones of upstream packages (development only)
+/packages/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Bytecode / packaging
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+**/dist/
+**/build/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE (uncomment if you commit team-wide IDE config)
+.idea/
+#.vscode/
+
+# Env / secrets — never ship
+.env
+.env.*

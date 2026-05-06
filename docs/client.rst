@@ -11,9 +11,9 @@ Install paths
 
 .. code-block:: bash
 
-   pip install ./packages/django-udp-discovery-client        # core only
-   pip install "./packages/django-udp-discovery-client[network]"   # recommended
-   pip install "./packages/django-udp-discovery-client[all]"     # network + django extras
+   pip install django-udp-discovery-client                  # core only
+   pip install "django-udp-discovery-client[network]"       # recommended
+   pip install "django-udp-discovery-client[all]"          # network + django extras
 
 ``[network]`` installs ``netifaces`` / ``ifaddr`` so ``discover()`` can broadcast per interface. Without it, ``discover()`` logs an ``ImportError`` and returns ``[]``.
 

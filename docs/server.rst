@@ -11,7 +11,7 @@ Installation
 
 .. code-block:: bash
 
-   pip install ./packages/django-udp-discovery
+   pip install django-udp-discovery
 
 
 Enable automatic listener

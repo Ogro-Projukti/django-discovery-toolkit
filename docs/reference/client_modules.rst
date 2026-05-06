@@ -4,7 +4,7 @@
 High-level API
 --------------
 
-These functions live in ``discovery_client.__init__`` alongside package metadata.
+These callables are re-exported from ``discovery_client`` (package root).
 
 .. autofunction:: discovery_client.discover
 

@@ -8,14 +8,7 @@ You need two machines **on the same broadcast domain** (typical LAN / same Wi‑
 Install both packages
 ---------------------
 
-From the monorepo root (this repository):
-
-.. code-block:: bash
-
-   pip install ./packages/django-udp-discovery ./packages/django-udp-discovery-client[network,django]
-
-
-For published wheels (when installed from PyPI), use:
+From PyPI:
 
 .. code-block:: bash
 

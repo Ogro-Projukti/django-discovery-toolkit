@@ -14,12 +14,12 @@ This toolkit ships as **two separate PyPI packages**, each with its **own GitHub
      - Links
    * - **Server**
      -
-       `django-udp-discovery on PyPI <https://pypi.org/project/django-udp-discovery/>`_ ·
-       `Repository <https://github.com/Ogro-Projukti/django-udp-discovery>`_
+       `django-udp-discovery on PyPI <https://pypi.org/project/django-udp-discovery/>`__ ·
+       `django-udp-discovery source <https://github.com/Ogro-Projukti/django-udp-discovery>`__
    * - **Client**
      -
-       `django-udp-discovery-client on PyPI <https://pypi.org/project/django-udp-discovery-client/>`_ ·
-       `Repository <https://github.com/Ogro-Projukti/django-udp-discovery-client>`_
+       `django-udp-discovery-client on PyPI <https://pypi.org/project/django-udp-discovery-client/>`__ ·
+       `django-udp-discovery-client source <https://github.com/Ogro-Projukti/django-udp-discovery-client>`__
 
 You normally install **both** packages into the environments that need them (server Django app + any discoverer scripts or Django projects).
 
@@ -70,18 +70,22 @@ Pick the repo you need, clone it, install from its root (editable optional).
 
 Use ``"[all]"`` if you prefer one command for extras.
 
-Install from the Django Discovery Toolkit monorepo (docs / unified tree)
-------------------------------------------------------------------------
+Build these docs locally (toolkit repository only)
+--------------------------------------------------
 
-When you already have **this repository** checkout (bundled ``packages/`` folders), you can install the local sdists/editable trees without cloning the standalone repos:
+This repo can hold **documentation only**. It does **not** vendor the libraries; Sphinx imports them after you install from PyPI (same set Read the Docs uses):
 
 .. code-block:: bash
 
-   pip install ./packages/django-udp-discovery
-   pip install "./packages/django-udp-discovery-client[django]"
-   pip install -r docs/requirements.txt        # sphinx + sphinx-rtd-theme + ifaddr (doc builds)
+   pip install -r docs/requirements.txt
 
-Pinned ``docs/requirements.txt`` adds **``ifaddr``** so Sphinx and minimal clients can import without compiling ``netifaces``. For runtime discovery parity with production, prefer ``"[network]"`` when wheels are available.
+That installs Sphinx, ``django-udp-discovery``, ``django-udp-discovery-client[django]``, ``ifaddr`` (lightweight imports for ``autodoc``), and the HTML theme. Then:
+
+.. code-block:: bash
+
+   python -m sphinx -b html docs docs/_build/html
+
+If you keep a local ``packages/`` directory for reading upstream source, list it in ``.gitignore`` and do not rely on it for builds.
 
 Django settings checklist
 -------------------------
@@ -108,7 +112,7 @@ Optional tuning (see :doc:`server`):
    ENABLE_LOGGING = True
 
 Server debugging and console logging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``ENABLE_LOGGING`` toggles informational output inside ``django_udp_discovery``, but Django still needs a **`LOGGING`** configuration before records reach handlers. The snippet below matches the **`django-udp-discovery` package README** (``Debugging and Console Logging``): add it, or merge the ``loggers`` entry, into your ``settings.py``.
 
