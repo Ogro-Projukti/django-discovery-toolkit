@@ -1,0 +1,4 @@
+sphinx>=7.0,<9
+sphinx-rtd-theme>=2.0
+# Pure-Python interface enumeration (avoids netifaces C build where wheels are unavailable)
+ifaddr>=0.2.0
